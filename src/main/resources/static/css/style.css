@@ -227,3 +227,115 @@ body {
 .inline-form {
     margin-top: 0.75rem;
 }
+
+.user-profile {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 1px solid #2d3a4d;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.data-table th,
+.data-table td {
+    padding: 0.65rem 0.5rem;
+    border-bottom: 1px solid #243041;
+    text-align: left;
+    vertical-align: top;
+}
+
+.data-table th {
+    color: #8b9cb3;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.actions-cell {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.lookup-form {
+    max-width: 480px;
+}
+
+.lookup-result {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #243041;
+}
+
+.branch-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.branch-list li {
+    padding: 0.45rem 0;
+    border-bottom: 1px solid #243041;
+}
+
+.file-list {
+    max-height: 600px;
+    overflow: auto;
+}
+
+.file-row {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid #243041;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.85rem;
+}
+
+.file-type {
+    color: #8b9cb3;
+    min-width: 48px;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+}
+
+.file-row a {
+    color: #7eb8ff;
+    text-decoration: none;
+}
+
+.file-row a:hover {
+    text-decoration: underline;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+}
+
+.endpoint-form {
+    margin-top: 0.5rem;
+}
+
+.endpoint-preview {
+    display: block;
+    margin: 0.75rem 0;
+    color: #8b9cb3;
+    font-size: 0.82rem;
+}
