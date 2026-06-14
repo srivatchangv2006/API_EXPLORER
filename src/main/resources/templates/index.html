@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenShift - Connect</title>
+    <title>API Explorer</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
@@ -14,11 +14,20 @@
     </div>
 </header>
 <main class="container">
+    <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+
+    <section class="card">
+        <h2>GitHub</h2>
+        <p class="hint">Explore GitHub API endpoints and view JSON responses.</p>
+        <div class="actions">
+            <a th:href="@{/github/explorer}" class="btn btn-primary">Open GitHub Explorer</a>
+            <a th:href="@{/github/login}" class="btn btn-secondary">Login with GitHub</a>
+        </div>
+    </section>
+
     <section class="card">
         <h2>OpenShift Connect</h2>
         <p class="hint">Enter your cluster name and namespace to begin.</p>
-
-        <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
 
         <form method="post" th:action="@{/openshift/connect}" class="form">
             <label for="cluster">Cluster Name</label>
