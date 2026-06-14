@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenShift Explorer</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="app-header">
+    <div class="container">
+        <h1>OpenShift Explorer</h1>
+        <p class="subtitle">Browse OpenShift API resources</p>
+    </div>
+</header>
+<main class="container explorer">
+    <section class="card">
+        <div class="info-grid">
+            <div><span class="label">Cluster</span><span th:text="${openshift.cluster}">rm3</span></div>
+            <div><span class="label">Namespace</span><span th:text="${openshift.namespace}">ns</span></div>
+            <div><span class="label">Server</span><span class="mono" th:text="${openshift.server}">server</span></div>
+            <div>
+                <span class="label">Connection Status</span>
+                <span class="status-ok" th:if="${openshift.connected}">Connected</span>
+                <span class="status-bad" th:unless="${openshift.connected}">Not connected</span>
+            </div>
+        </div>
+
+        <form method="post" th:action="@{/openshift/disconnect}" class="inline-form">
+            <button type="submit" class="btn btn-secondary btn-sm">Disconnect</button>
+        </form>
+    </section>
+
+    <section class="card">
+        <h2>API Endpoints</h2>
+        <div class="endpoint-list">
+            <div class="endpoint-row" th:each="resource : ${resources}">
+                <div class="endpoint-info">
+                    <strong th:text="${resource.label}">Pods</strong>
+                    <code class="mono" th:text="${resource.buildPath(openshift.namespace)}">/api/v1/...</code>
+                </div>
+                <form method="post" th:action="@{/openshift/api/{name}(name=${resource.name()})}">
+                    <button type="submit" class="btn btn-primary btn-sm"
+                            th:classappend="${activeResource != null and activeResource == resource} ? ' active' : ''">
+                        Send
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Response</h2>
+        <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+        <pre class="response" th:text="${responseBody != null ? responseBody : 'Click Send on an endpoint to see the JSON response here.'}"></pre>
+    </section>
+</main>
+</body>
+</html>

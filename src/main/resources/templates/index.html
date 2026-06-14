@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenShift - Connect</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="app-header">
+    <div class="container">
+        <h1>API Explorer</h1>
+        <p class="subtitle">OpenShift · GitHub · Bitbucket</p>
+    </div>
+</header>
+<main class="container">
+    <section class="card">
+        <h2>OpenShift Connect</h2>
+        <p class="hint">Enter your cluster name and namespace to begin.</p>
+
+        <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+
+        <form method="post" th:action="@{/openshift/connect}" class="form">
+            <label for="cluster">Cluster Name</label>
+            <input id="cluster" name="cluster" type="text" placeholder="rm3" required>
+
+            <label for="namespace">Namespace</label>
+            <input id="namespace" name="namespace" type="text" placeholder="srivatchan-gv-dev" required>
+
+            <button type="submit" class="btn btn-primary">Continue to OpenShift Login</button>
+        </form>
+    </section>
+</main>
+</body>
+</html>

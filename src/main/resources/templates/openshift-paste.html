@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paste Login Command</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="app-header">
+    <div class="container">
+        <h1>API Explorer</h1>
+        <p class="subtitle">OpenShift · GitHub · Bitbucket</p>
+    </div>
+</header>
+<main class="container">
+    <section class="card">
+        <h2>Paste Copy Login Command</h2>
+
+        <div class="info-grid">
+            <div><span class="label">Cluster</span><span th:text="${cluster}">rm3</span></div>
+            <div><span class="label">Namespace</span><span th:text="${namespace}">srivatchan-gv-dev</span></div>
+        </div>
+
+        <p class="hint">Paste the full command from OpenShift, for example:</p>
+        <pre class="example">oc login --token=sha256~xxxxx \
+--server=https://api.rm3.7wse.p1.openshiftapps.com:6443</pre>
+
+        <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+
+        <form method="post" th:action="@{/openshift/paste}" class="form">
+            <label for="loginCommand">Copy Login Command</label>
+            <textarea id="loginCommand" name="loginCommand" rows="4" required
+                      placeholder="oc login --token=sha256~... --server=https://..."></textarea>
+
+            <div class="actions">
+                <button type="submit" class="btn btn-primary">Connect &amp; Open Explorer</button>
+                <a th:href="@{/openshift/login}" class="btn btn-secondary">Back to Login</a>
+            </div>
+        </form>
+    </section>
+</main>
+</body>
+</html>

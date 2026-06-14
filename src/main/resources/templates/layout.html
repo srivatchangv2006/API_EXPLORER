@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${pageTitle != null ? pageTitle : 'API Explorer'}">API Explorer</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="app-header">
+    <div class="container">
+        <h1>API Explorer</h1>
+        <p class="subtitle">OpenShift · GitHub · Bitbucket</p>
+    </div>
+</header>
+<main class="container">
+    <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+    <div th:replace="${content}">Content</div>
+</main>
+</body>
+</html>

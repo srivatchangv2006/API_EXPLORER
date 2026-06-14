@@ -1,0 +1,229 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: #0f1419;
+    color: #e7ecf3;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.app-header {
+    background: #1a2332;
+    border-bottom: 1px solid #2d3a4d;
+    padding: 1.25rem 0;
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.subtitle {
+    margin: 0.25rem 0 0;
+    color: #8b9cb3;
+    font-size: 0.9rem;
+}
+
+.card {
+    background: #151c27;
+    border: 1px solid #2d3a4d;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 1.15rem;
+}
+
+.hint {
+    color: #8b9cb3;
+}
+
+.form label {
+    display: block;
+    margin: 0.75rem 0 0.35rem;
+    font-size: 0.9rem;
+    color: #b8c5d6;
+}
+
+.form input,
+.form textarea {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid #3a4d66;
+    border-radius: 6px;
+    background: #0f1419;
+    color: #e7ecf3;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.form textarea {
+    font-family: Consolas, "Courier New", monospace;
+    resize: vertical;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-primary {
+    background: #3d8bfd;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #2f7ae5;
+}
+
+.btn-primary.active {
+    background: #1f6fd1;
+}
+
+.btn-secondary {
+    background: #2d3a4d;
+    color: #e7ecf3;
+}
+
+.btn-secondary:hover {
+    background: #3a4d66;
+}
+
+.btn-sm {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+}
+
+.form .btn-primary {
+    margin-top: 1rem;
+}
+
+.alert {
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.alert-error {
+    background: #3a1f24;
+    border: 1px solid #7a3040;
+    color: #ffb4c0;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.info-grid .label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #8b9cb3;
+}
+
+.mono {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.85rem;
+    word-break: break-all;
+}
+
+.steps {
+    padding-left: 1.25rem;
+    color: #b8c5d6;
+}
+
+.steps li {
+    margin-bottom: 0.5rem;
+}
+
+.example {
+    background: #0f1419;
+    border: 1px solid #2d3a4d;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    overflow-x: auto;
+    font-size: 0.85rem;
+}
+
+.status-ok {
+    color: #5dd39e;
+    font-weight: 600;
+}
+
+.status-bad {
+    color: #ff8a9a;
+    font-weight: 600;
+}
+
+.endpoint-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.endpoint-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid #243041;
+}
+
+.endpoint-row:last-child {
+    border-bottom: none;
+}
+
+.endpoint-info code {
+    display: block;
+    margin-top: 0.2rem;
+    color: #8b9cb3;
+}
+
+.response {
+    background: #0f1419;
+    border: 1px solid #2d3a4d;
+    border-radius: 6px;
+    padding: 1rem;
+    min-height: 200px;
+    max-height: 600px;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.82rem;
+    margin: 0;
+}
+
+.inline-form {
+    margin-top: 0.75rem;
+}

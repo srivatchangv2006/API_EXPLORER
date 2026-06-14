@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenShift Login</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="app-header">
+    <div class="container">
+        <h1>API Explorer</h1>
+        <p class="subtitle">OpenShift · GitHub · Bitbucket</p>
+    </div>
+</header>
+<main class="container">
+    <section class="card">
+        <h2>OpenShift Login</h2>
+
+        <div class="info-grid">
+            <div><span class="label">Cluster</span><span th:text="${cluster}">rm3</span></div>
+            <div><span class="label">Namespace</span><span th:text="${namespace}">srivatchan-gv-dev</span></div>
+        </div>
+
+        <ol class="steps">
+            <li>Click the button below to open the OpenShift login page in a new tab.</li>
+            <li>Sign in with your OpenShift credentials.</li>
+            <li>After login, open your user menu (top right) and choose <strong>Copy Login Command</strong>.</li>
+            <li>Return here and paste the full <code>oc login</code> command on the next page.</li>
+        </ol>
+
+        <div class="actions">
+            <a th:href="${consoleUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Open OpenShift Login
+            </a>
+            <a th:href="@{/openshift/paste}" class="btn btn-secondary">I have my login command →</a>
+        </div>
+    </section>
+</main>
+</body>
+</html>
