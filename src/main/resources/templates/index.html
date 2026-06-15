@@ -14,46 +14,31 @@
     </div>
 </header>
 <main class="container">
-
     <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
 
-    <div class="home-grid">
+    <section class="card">
+        <h2>GitHub</h2>
+        <p class="hint">Explore GitHub API endpoints and view JSON responses.</p>
+        <div class="actions">
+            <a th:href="@{/github/explorer}" class="btn btn-primary">Open GitHub Explorer</a>
+            <a th:href="@{/github/login}" class="btn btn-secondary">Login with GitHub</a>
+        </div>
+    </section>
 
-        <!-- OpenShift Card -->
-        <section class="card">
-            <div class="card-platform-badge badge-openshift">OpenShift</div>
-            <h2>OpenShift Connect</h2>
-            <p class="hint">Enter your cluster name and namespace to begin.</p>
+    <section class="card">
+        <h2>OpenShift Connect</h2>
+        <p class="hint">Enter your cluster name and namespace to begin.</p>
 
-            <form method="post" th:action="@{/openshift/connect}" class="form">
-                <label for="cluster">Cluster Name</label>
-                <input id="cluster" name="cluster" type="text" placeholder="rm3" required>
+        <form method="post" th:action="@{/openshift/connect}" class="form">
+            <label for="cluster">Cluster Name</label>
+            <input id="cluster" name="cluster" type="text" placeholder="rm3" required>
 
-                <label for="namespace">Namespace</label>
-                <input id="namespace" name="namespace" type="text" placeholder="srivatchan-gv-dev" required>
+            <label for="namespace">Namespace</label>
+            <input id="namespace" name="namespace" type="text" placeholder="srivatchan-gv-dev" required>
 
-                <button type="submit" class="btn btn-primary" style="margin-top:1rem;">Continue to OpenShift Login</button>
-            </form>
-        </section>
-
-        <!-- Bitbucket Card -->
-        <section class="card">
-            <div class="card-platform-badge badge-bitbucket">Bitbucket</div>
-            <h2>Bitbucket Connect</h2>
-            <p class="hint">Enter your workspace and repository slug to begin.</p>
-
-            <form method="post" th:action="@{/bitbucket/connect}" class="form">
-                <label for="workspace">Workspace</label>
-                <input id="workspace" name="workspace" type="text" placeholder="sample_space_1" required>
-
-                <label for="repoSlug">Repository Slug</label>
-                <input id="repoSlug" name="repoSlug" type="text" placeholder="repo_1" required>
-
-                <button type="submit" class="btn btn-bb-primary" style="margin-top:1rem;">Continue to Bitbucket Login</button>
-            </form>
-        </section>
-
-    </div>
+            <button type="submit" class="btn btn-primary">Continue to OpenShift Login</button>
+        </form>
+    </section>
 </main>
 </body>
 </html>
