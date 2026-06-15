@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Error</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="app-header">
+    <div class="container">
+        <h1>GitHub Error</h1>
+    </div>
+</header>
+<main class="container">
+    <section class="card">
+        <div class="alert alert-error" th:text="${error}">Error</div>
+        <div class="actions">
+            <a th:href="@{/github/explorer}" class="btn btn-secondary btn-sm">Explorer</a>
+            <a th:href="@{/github/login}" class="btn btn-primary btn-sm">Login with GitHub</a>
+            <a th:href="@{/}" class="btn btn-secondary btn-sm">Home</a>
+        </div>
+    </section>
+</main>
+</body>
+</html>
