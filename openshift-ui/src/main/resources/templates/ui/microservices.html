@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microservices</title>
+    <link rel="stylesheet" th:href="@{/css/ui.css}">
+</head>
+<body>
+<header class="app-header">
+    <div class="container">
+        <h1>Microservices</h1>
+        <p class="subtitle" th:text="${namespace}">namespace</p>
+    </div>
+</header>
+<main class="container">
+    <section class="card">
+        <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+        <a th:href="@{/openshift-ui/namespaces}" class="btn btn-secondary btn-sm">Back to Namespaces</a>
+    </section>
+
+    <section class="card" th:if="${overview != null}">
+        <h2>Namespace Overview</h2>
+        <div class="info-grid">
+            <div><span class="label">Deployments</span><span th:text="${overview.deploymentCount}">0</span></div>
+            <div><span class="label">Pods</span><span th:text="${overview.podCount}">0</span></div>
+            <div><span class="label">Services</span><span th:text="${overview.serviceCount}">0</span></div>
+            <div><span class="label">Routes</span><span th:text="${overview.routeCount}">0</span></div>
+        </div>
+        <div th:if="${!overview.podsByPhase.isEmpty()}" class="overview-block">
+            <span class="label">Pods by phase</span>
+            <span th:each="entry : ${overview.podsByPhase}"
+                  th:text="${entry.key + ': ' + entry.value + ' '}" class="mono"></span>
+        </div>
+        <div th:if="${!overview.routeHosts.isEmpty()}" class="overview-block">
+            <span class="label">Route hosts</span>
+            <div class="mono" th:each="host : ${overview.routeHosts}" th:text="${host}">host</div>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Microservices (Deployments)</h2>
+    </section>
+    <section class="card-grid">
+        <a th:each="ms : ${microservices}"
+           th:href="@{/openshift-ui/namespaces/{ns}/microservices/{name}(ns=${namespace}, name=${ms})}"
+           class="card-item">
+            <h3 th:text="${ms}">microservice</h3>
+            <p>View details</p>
+        </a>
+    </section>
+    <section class="card" th:if="${#lists.isEmpty(microservices)}">
+        <p class="hint">No deployments found in this namespace.</p>
+    </section>
+</main>
+</body>
+</html>

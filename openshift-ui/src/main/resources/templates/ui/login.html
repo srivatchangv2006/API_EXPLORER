@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenShift Login</title>
+    <link rel="stylesheet" th:href="@{/css/ui.css}">
+</head>
+<body>
+<header class="app-header">
+    <div class="container"><h1>OpenShift Login</h1><p class="subtitle" th:text="'Cluster: ' + ${cluster}">Cluster</p></div>
+</header>
+<main class="container">
+    <section class="card">
+        <ol class="steps">
+            <li>Open the OpenShift console and sign in.</li>
+            <li>Copy the <strong>Copy Login Command</strong> from your user menu.</li>
+            <li>Paste it on the next page.</li>
+        </ol>
+        <div class="actions">
+            <a th:href="${consoleUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open OpenShift Login</a>
+            <a th:href="@{/openshift-ui/paste}" class="btn btn-secondary">Paste Login Command</a>
+        </div>
+    </section>
+</main>
+</body>
+</html>
