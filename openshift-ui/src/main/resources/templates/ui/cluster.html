@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenShift UI - Cluster</title>
+    <link rel="stylesheet" th:href="@{/css/ui.css}">
+</head>
+<body>
+<header class="app-header">
+    <div class="container"><h1>OpenShift UI</h1><p class="subtitle">Cluster overview</p></div>
+</header>
+<main class="container">
+    <section class="card">
+        <h2>Select Cluster</h2>
+        <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+        <form method="post" th:action="@{/openshift-ui/connect}" class="form">
+            <label for="cluster">Cluster Name</label>
+            <input id="cluster" name="cluster" type="text" placeholder="rm3" required>
+            <button type="submit" class="btn btn-primary">Continue</button>
+        </form>
+    </section>
+</main>
+</body>
+</html>

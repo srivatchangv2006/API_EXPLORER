@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paste Login Command</title>
+    <link rel="stylesheet" th:href="@{/css/ui.css}">
+</head>
+<body>
+<header class="app-header">
+    <div class="container"><h1>Paste Login Command</h1><p class="subtitle" th:text="'Cluster: ' + ${cluster}">Cluster</p></div>
+</header>
+<main class="container">
+    <section class="card">
+        <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+        <form method="post" th:action="@{/openshift-ui/paste}" class="form">
+            <label for="loginCommand">Copy Login Command</label>
+            <textarea id="loginCommand" name="loginCommand" rows="4" required
+                      placeholder="oc login --token=sha256~... --server=https://..."></textarea>
+            <button type="submit" class="btn btn-primary">Connect</button>
+        </form>
+    </section>
+</main>
+</body>
+</html>

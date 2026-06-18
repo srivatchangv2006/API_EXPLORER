@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${detail.name}">Microservice</title>
+    <link rel="stylesheet" th:href="@{/css/ui.css}">
+</head>
+<body>
+<header class="app-header">
+    <div class="container">
+        <h1 th:text="${detail.name}">microservice</h1>
+        <p class="subtitle" th:text="${namespace} + ' / ' + ${cluster}">namespace</p>
+    </div>
+</header>
+<main class="container">
+    <section class="card">
+        <div class="actions">
+            <a th:href="@{/openshift-ui/namespaces/{ns}(ns=${namespace})}" class="btn btn-secondary btn-sm">Back to Microservices</a>
+            <a th:if="${!decrypt}"
+               th:href="@{/openshift-ui/namespaces/{ns}/microservices/{name}(ns=${namespace}, name=${detail.name}, decrypt=true)}"
+               class="btn btn-primary btn-sm">Decrypt Secrets</a>
+            <a th:if="${decrypt}"
+               th:href="@{/openshift-ui/namespaces/{ns}/microservices/{name}(ns=${namespace}, name=${detail.name})}"
+               class="btn btn-secondary btn-sm">Hide Secrets</a>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Microservice Details</h2>
+        <table class="detail-table">
+            <thead>
+            <tr>
+                <th>Key</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="row : ${detail.detailRows}">
+                <td th:text="${row.key()}">Key</td>
+                <td class="detail-value" th:text="${row.value()}">Value</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+</body>
+</html>
