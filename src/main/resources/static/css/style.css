@@ -228,6 +228,90 @@ body {
     margin-top: 0.75rem;
 }
 
+/* ── Home page two-card grid ──────────────────────────────────── */
+.home-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+@media (max-width: 700px) {
+    .home-grid { grid-template-columns: 1fr; }
+}
+
+.home-grid-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media (max-width: 1000px) {
+    .home-grid-3 { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 700px) {
+    .home-grid-3 { grid-template-columns: 1fr; }
+}
+
+/* ── Platform badges ──────────────────────────────────────────── */
+.card-platform-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.65rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+}
+
+.badge-openshift {
+    background: #7b1fa2;
+    color: #fff;
+}
+
+.badge-bitbucket {
+    background: #0052cc;
+    color: #fff;
+}
+
+/* ── Bitbucket primary button (blue) ─────────────────────────── */
+.btn-bb-primary {
+    background: #0052cc;
+    color: #fff;
+}
+
+.btn-bb-primary:hover {
+    background: #0047b3;
+}
+
+.btn-bb-primary.active {
+    background: #003d99;
+}
+
+/* ── File path input inline with Send button ─────────────────── */
+.endpoint-form-file {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.file-path-input {
+    padding: 0.38rem 0.65rem;
+    border: 1px solid #3a4d66;
+    border-radius: 6px;
+    background: #0f1419;
+    color: #e7ecf3;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.82rem;
+    width: 220px;
+}
+
+.file-path-input:focus {
+    outline: none;
+    border-color: #0052cc;
+}
+
+/* ── GitHub-specific styles (from GitHub explorer) ───────────── */
 .user-profile {
     display: flex;
     gap: 1rem;
@@ -338,4 +422,10 @@ body {
     margin: 0.75rem 0;
     color: #8b9cb3;
     font-size: 0.82rem;
+}
+
+/* ── GitHub badge ─────────────────────────────────────────────── */
+.badge-github {
+    background: #24292f;
+    color: #fff;
 }
